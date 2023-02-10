@@ -1,0 +1,12 @@
+
+
+AddDefaultCharset UTF-8
+
+Options -Indexes
+RewriteEngine on
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([0-9a-zA-Z_-]+)$ $1.php [NC,L]
+ErrorDocument 404 /fk/404.php
+ErrorDocument 403 /fk/404.php
+

@@ -1,0 +1,219 @@
+<?php
+include 'init.php';
+?>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Simple Sidebar - Start Bootstrap Template</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+        <link href="assets/css/bootstrap.min.css" rel="stylesheet" >
+        <style>
+            .col-sm-12.col-md-4.mix.tabs {
+                   float: left;
+                }
+                .container-fluid.main_container {
+    margin-top: 40px;
+}
+        </style>
+    </head>
+    <body>
+        <div class="d-flex" id="wrapper">
+            <!-- Sidebar-->
+            <div class="border-end bg-white" id="sidebar-wrapper">
+                <div class="sidebar-heading border-bottom bg-light">Start Bootstrap</div>
+                <div class="list-group list-group-flush">
+                   <button onClick="dash_show()"    class="list-group-item list-group-item-action list-group-item-light p-3">
+                   Dashboard</button> 
+                   <button onClick="admin_show()" class="list-group-item list-group-item-action list-group-item-light p-3">
+                   admins</button> 
+                   <button onClick="user_show()"  class="list-group-item list-group-item-action list-group-item-light p-3">
+                   users</button> 
+                   <button onClick="depart_show()"  class="list-group-item list-group-item-action list-group-item-light p-3">
+                   department</button> 
+                </div>
+            </div>
+            <!-- Page content wrapper-->
+            <div id="page-content-wrapper">
+                <!-- Top navigation-->
+                <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+                    <div class="container-fluid">
+                        <button class="btn btn-primary" id="sidebarToggle">Toggle Menu</button>
+                        
+                    </div>
+                </nav>
+                <!-- Page content-->
+                <div class="container-fluid main_container">
+                    <div class="col-sm-12 col-md-4 mix tabs"  >
+                        <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+                            <div class="card-header"></div>
+                            <div class="card-body">
+                              <h5 class="card-title">posts number</h5>
+                              <p class="card-text">3000</p>
+                            </div>
+                          </div>
+                          
+                    </div>
+                    <div class="col-sm-12 col-md-4 mix tabs"  >
+                        <div class="card text-white bg-info mb-3" style="max-width: 18rem;">
+                            <div class="card-header"></div>
+                            <div class="card-body">
+                              <h5 class="card-title">user number</h5>
+                              <p class="card-text"> 155</p>
+                            </div>
+                          </div>    
+                          
+                    </div>
+                    <div class="col-sm-12 col-md-4 mix tabs"  >
+                        <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+                            <div class="card-header"></div>
+                            <div class="card-body">
+                              <h5 class="card-title">department number</h5>
+                              <p class="card-text">20</p>
+                            </div>
+                          </div>
+                          
+                    </div>
+
+                    <hr>
+
+                    <div class="input-group mb-3">
+
+                        <div class="input-group-prepend">
+                          <button class="btn btn-outline-secondary" type="button">Button</button>
+                        </div>
+                        <input type="text" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1">
+                      </div>
+  
+                        <!--###############################################-->
+                    <table class="table table-striped" id="tuser">
+                        <thead>
+                          <tr>
+                            <th scope="col">id</th>
+                            <th scope="col">name</th>
+                            <th scope="col">email</th>
+                            <th scope="col">address</th>
+                            <th scope="col">phone</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                        <?php 
+                      $all_user = getAllFrom("*", 'users', NULL,  NULL, 'user_id');
+                      foreach( $all_user as $user){?>
+                          <tr>
+                            <th scope="row"><?=$user['user_id']?> </th>
+                            <td><?=$user['user_name']?> </td>
+                            <td><?=$user['Email']?> </td>
+                            <td><?=$user['addresstion']?> </td>
+                            <td><?=$wouserrk['phone']?> </td>
+                          </tr>
+                          <?php   }
+                  ?>
+                        </tbody>
+                      </table>
+
+                      <!---####################-->
+                    <table class="table table-striped" id="tadmin">
+                      <thead>
+                        <tr>
+                          <th scope="col">#</th>
+                          <th scope="col">tadmin</th>
+                          <th scope="col">tadmin</th>
+                          <th scope="col">tadmin</th>
+                          <th scope="col">tadmin</th>
+                          <th scope="col">Handle</th>
+                          <th scope="col">Last</th>
+                          <th scope="col">Handle</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <th scope="row">1</th>
+                          <td>Mark</td>
+                          <td>Otto</td>
+                          <td>@mdo</td>
+                          <td>Thornton</td>
+                          <td>@fat</td>
+                          <td>Thornton</td>
+                          <td>@fat</td>
+                        </tr>
+                       
+                      </tbody>
+                    </table>
+                    <!--#######################-->
+                    <table class="table table-striped" id="tdepart">
+                      <thead>
+                        <tr>
+                          <th scope="col">#</th>
+                          <th scope="col">tadmin</th>
+                          <th scope="col">tadmin</th>
+                          
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <th scope="row">1</th>
+                          <td>Mark</td>
+                          <td>Otto</td>
+                        </tr>
+                       
+                      </tbody>
+                    </table>
+
+
+                </div>  
+                </div>
+            </div>
+        </div>
+
+        <script>
+          var user =document.getElementById("tuser");
+          var admin =document.getElementById("tadmin");
+          var depart =document.getElementById("tdepart");
+          window.onload=function(){
+                admin.style.display="none";
+                user.style.display="none";
+                depart.style.display="none";
+          };
+            function user_show(){
+                admin.style.display="none";
+                user.style.display="table";
+                depart.style.display="none";
+            }
+            function admin_show(){
+                admin.style.display="table";
+                user.style.display="none";
+                depart.style.display="none";
+            }
+            function dash_show(){
+              admin.style.display="none";
+                user.style.display="none";
+                depart.style.display="none";
+            }
+            function depart_show(){
+              depart.style.display="table";
+              admin.style.display="none";
+              user.style.display="none";
+
+            }
+
+
+
+        </script>
+
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+
+        
+
+
+    </body>
+</html>
